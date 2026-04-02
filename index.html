@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="没摆烂 - 一款帮助用户养成好习惯、戒除坏习惯的打卡APP。通过科学的目标拆解、每日打卡、连续天数统计等功能，让用户轻松坚持，告别拖延。">
+    <meta name="keywords" content="没摆烂,习惯打卡,习惯养成,每日打卡,目标管理,效率工具">
+    <title>没摆烂 - 养成好习惯，从每日打卡开始</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">💪</span>
+                    <span class="logo-text">没摆烂</span>
+                </a>
+                <ul class="nav-list">
+                    <li><a href="index.html" class="active">首页</a></li>
+                    <li><a href="about.html">关于我们</a></li>
+                    <li><a href="download.html">下载APP</a></li>
+                    <li><a href="agreement.html">用户协议</a></li>
+                    <li><a href="privacy.html">隐私政策</a></li>
+                </ul>
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-bg">
+            <div class="hero-gradient"></div>
+            <div class="hero-particles" id="particles"></div>
+            <div class="hero-orb hero-orb-1"></div>
+            <div class="hero-orb hero-orb-2"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-icon">✨</span>
+                    <span>习惯养成工具</span>
+                </div>
+                <h1 class="hero-title">
+                    知道要改<br>
+                    <span class="highlight">但坚持不下去？</span>
+                </h1>
+                <p class="hero-subtitle">
+                    我们帮你！通过科学的AI目标拆解、每日打卡、连续天数统计，<br class="hide-mobile">
+                    让坚持变得简单，让习惯自然养成。
+                </p>
+                <div class="hero-buttons">
+                    <a href="download.html" class="btn btn-primary">
+                        <span>立即下载</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 5v14M5 12l7 7 7-7"/>
+                        </svg>
+                    </a>
+                    <a href="#features" class="btn btn-secondary">了解更多</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" id="stat-users">0</span>
+                        <span class="stat-label">用户正在坚持</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="stat-checkins">0</span>
+                        <span class="stat-label">累计打卡次数</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="stat-rate">0</span>
+                        <span class="stat-label">用户坚持率</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="phone-mockup">
+                    <div class="phone-glow"></div>
+                    <div class="phone-frame">
+                        <div class="phone-notch"></div>
+                        <div class="phone-screen">
+                            <div class="app-preview">
+                                <div class="preview-header">
+                                    <span class="preview-date">今日打卡</span>
+                                    <span class="preview-streak">🔥 连续7天</span>
+                                </div>
+                                <div class="preview-content">
+                                    <div class="preview-task completed">
+                                        <span class="task-check">✓</span>
+                                        <span>早起冥想 10分钟</span>
+                                    </div>
+                                    <div class="preview-task completed">
+                                        <span class="task-check">✓</span>
+                                        <span>阅读书籍 30分钟</span>
+                                    </div>
+                                    <div class="preview-task">
+                                        <span class="task-check"></span>
+                                        <span>夜跑 5公里</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="phone-decoration">
+                        <div class="deco-ring"></div>
+                        <div class="deco-ring"></div>
+                        <div class="deco-ring"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">核心功能</span>
+                <h2 class="section-title">为什么选择没摆烂？</h2>
+                <p class="section-desc">我们提供了一套完整的习惯养成解决方案</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card" data-delay="0">
+                    <div class="feature-icon">🎯</div>
+                    <h3>AI智能拆解</h3>
+                    <p>输入你的大目标，AI帮你拆解成每日可执行的小任务，让宏大目标变得触手可及</p>
+                    <div class="feature-decoration"></div>
+                </div>
+                <div class="feature-card" data-delay="100">
+                    <div class="feature-icon">📅</div>
+                    <h3>每日打卡</h3>
+                    <p>简洁高效的打卡流程，轻轻一点完成今日任务，实时记录你的坚持轨迹</p>
+                    <div class="feature-decoration"></div>
+                </div>
+                <div class="feature-card" data-delay="200">
+                    <div class="feature-icon">🔥</div>
+                    <h3>连续天数统计</h3>
+                    <p>清晰的连续打卡天数展示，激发你的成就感，激励你继续坚持下去</p>
+                    <div class="feature-decoration"></div>
+                </div>
+                <div class="feature-card" data-delay="300">
+                    <div class="feature-icon">⏰</div>
+                    <h3>提醒通知</h3>
+                    <p>自定义提醒时间，准时提醒你该做任务了，绝不遗漏任何一个目标</p>
+                    <div class="feature-decoration"></div>
+                </div>
+                <div class="feature-card" data-delay="400">
+                    <div class="feature-icon">📊</div>
+                    <h3>数据统计</h3>
+                    <p>详细的数据分析，清晰展示你的坚持历程，帮你发现更好的自己</p>
+                    <div class="feature-decoration"></div>
+                </div>
+                <div class="feature-card" data-delay="500">
+                    <div class="feature-icon">🤝</div>
+                    <h3>互助社区</h3>
+                    <p>与志同道合的人一起坚持，互相鼓励，共同进步</p>
+                    <div class="feature-decoration"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">使用流程</span>
+                <h2 class="section-title">简单四步，养成好习惯</h2>
+            </div>
+            <div class="steps">
+                <div class="step" data-delay="0">
+                    <div class="step-visual">
+                        <div class="step-number">01</div>
+                    </div>
+                    <div class="step-content">
+                        <h3>设定目标</h3>
+                        <p>说出你想要达成的目标，比如"养成早起习惯"、"每天阅读一小时"</p>
+                    </div>
+                </div>
+                <div class="step-arrow">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </div>
+                <div class="step" data-delay="150">
+                    <div class="step-visual">
+                        <div class="step-number">02</div>
+                    </div>
+                    <div class="step-content">
+                        <h3>AI拆解任务</h3>
+                        <p>AI智能分析你的目标，生成科学合理的每日任务计划</p>
+                    </div>
+                </div>
+                <div class="step-arrow">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </div>
+                <div class="step" data-delay="300">
+                    <div class="step-visual">
+                        <div class="step-number">03</div>
+                    </div>
+                    <div class="step-content">
+                        <h3>每日打卡</h3>
+                        <p>按照计划每日完成任务，一键打卡记录你的坚持</p>
+                    </div>
+                </div>
+                <div class="step-arrow">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </div>
+                <div class="step" data-delay="450">
+                    <div class="step-visual">
+                        <div class="step-number">04</div>
+                    </div>
+                    <div class="step-content">
+                        <h3>收获成果</h3>
+                        <p>累计连续打卡天数，收获成就感和好习惯，成为更好的自己</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">用户评价</span>
+                <h2 class="section-title">他们都在改变</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">👨</div>
+                    <p class="testimonial-text">"用了三个月，终于养成了早起的习惯！以前总是三分钟热度，现在每天醒来第一件事就是打卡。"</p>
+                    <div class="testimonial-info">
+                        <span class="testimonial-name">张先生</span>
+                        <span class="testimonial-stats">连续打卡 98 天</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">👩</div>
+                    <p class="testimonial-text">"AI拆解真的很神奇！把'我要变优秀'这样的大目标拆成每天能完成的小事，坚持起来一点都不累。"</p>
+                    <div class="testimonial-info">
+                        <span class="testimonial-name">李女士</span>
+                        <span class="testimonial-stats">连续打卡 56 天</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">🧑</div>
+                    <p class="testimonial-text">"和朋友们一起组队打卡，互相监督，再也不会一个人默默放弃了。有人陪着你坚持，真的不一样！"</p>
+                    <div class="testimonial-info">
+                        <span class="testimonial-name">王同学</span>
+                        <span class="testimonial-stats">连续打卡 120 天</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <div class="cta-badge">
+                    <span>🎉</span>
+                    <span>已有 100,000+ 用户加入</span>
+                </div>
+                <h2>准备好改变自己了吗？</h2>
+                <p>下载没摆烂，从今天开始你的习惯养成之旅</p>
+                <div class="cta-buttons">
+                    <a href="download.html" class="btn btn-primary btn-large">
+                        <span>立即开始</span>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 5v14M5 12l7 7 7-7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <span class="logo-icon">💪</span>
+                        <span class="logo-text">没摆烂</span>
+                    </a>
+                    <p>一款帮助你养成好习惯、告别拖延的打卡APP</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link">微信</a>
+                        <a href="#" class="social-link">微博</a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>产品</h4>
+                        <ul>
+                            <li><a href="index.html#features">核心功能</a></li>
+                            <li><a href="download.html">下载APP</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>支持</h4>
+                        <ul>
+                            <li><a href="about.html">关于我们</a></li>
+                            <li><a href="agreement.html">用户协议</a></li>
+                            <li><a href="privacy.html">隐私政策</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>联系方式</h4>
+                        <ul>
+                            <li><a href="mailto:contact@meibanlan.com">contact@meibanlan.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 没摆烂. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const navList = document.querySelector('.nav-list');
+            navList.classList.toggle('mobile-open');
+        }
+
+        function animateCounter(element, target, suffix = '') {
+            let current = 0;
+            const increment = target / 60;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(current).toLocaleString() + suffix;
+            }, 16);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const particlesContainer = document.getElementById('particles');
+            for (let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 5 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                particlesContainer.appendChild(particle);
+            }
+
+            const observerOptions = {
+                threshold: 0.3,
+                rootMargin: '0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.feature-card, .step, .testimonial-card').forEach(el => {
+                observer.observe(el);
+            });
+
+            const statsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounter(document.getElementById('stat-users'), 100000, '+');
+                        animateCounter(document.getElementById('stat-checkins'), 5000000, '+');
+                        animateCounter(document.getElementById('stat-rate'), 85, '%');
+                        statsObserver.disconnect();
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            const statsSection = document.querySelector('.hero-stats');
+            if (statsSection) {
+                statsObserver.observe(statsSection);
+            }
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
